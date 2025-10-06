@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    build: .  # Usa el Dockerfile en esta carpeta
+    container_name: ContDBpractMod3
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: Admin
+      POSTGRES_PASSWORD: p4ssw0rdDB
+      POSTGRES_DB: credenciales
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+    driver: local
